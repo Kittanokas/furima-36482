@@ -23,13 +23,12 @@
 | Column          | Type           | Options                         |
 |-----------------|----------------|---------------------------------|
 | name            | string         | null: false                     |
-| category        | category_id    | null: false                     |
-| explanation     | explanation_id | null: false                     |
-| genre           | genre_id       | null: false                     |
-| postage         | postage_id     | null: false                     |
-| delivery_fee    | delivery_fee_id| null: false                     |
-| origin_place    | origin_place_id| null: false                     |
-| ship_day        | ship_day_id    | null: false                     |
+| explanation     | text           | null: false                     |
+| category_id     | integer        | null: false                     |
+| status_id       | integer        | null: false                     |
+| delivery_fee_id | integer        | null: false                     |
+| prefecture_id   | integer        | null: false                     |
+| ship_day_id     | integer        | null: false                     |
 | price           | integer        | null: false                     |
 | user            | references     | null: false, foreign_key: true  |
 
@@ -56,10 +55,10 @@
 | Column       | Type          | Options                        |
 |--------------|---------------|--------------------------------|
 | postal_code  | string        | null: false                    |
-| prefecture   | prefecture_id | null: false                    |
+| prefecture_id| integer       | null: false                    |
 | city         | string        | null: false                    |
 | house_num    | string        | null: false                    |
-| house_name   | string        | null: false                    |
+| building_name| string        |                                |
 | phone        | string        | null: false                    |
 | buy_record   | references    | null: false, foreign_key: true |
 
