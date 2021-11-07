@@ -1,24 +1,61 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column                | Type     | Options      |
+| ----------------------|----------|--------------|
+| nickname              | string   | null: false  |
+| email                 | string   | null: false  |
+| encrypted_password    | string   | null: false  |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_many :buy-records
 
-* Configuration
+## items テーブル
 
-* Database creation
+| Column          | Type    | Options     |
+|-----------------|---------|-------------|
+| name            | string  | null: false |
+| category        | string  | null: false |
+| explanation     | text    | null: false |
+| status          | string  | null: false |
+| postage         | integer | null: false |
+| origin          | string  | null: false |
+| price           | integer | null: false |
 
-* Database initialization
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :users
+- has_one :buy-record
 
-* Deployment instructions
+## buy-records テーブル
 
-* ...
+| Column   | Type       | Options                        |
+|----------|------------|--------------------------------|
+| user     | references | null: false, foreign_key: true |
+
+## Association
+
+- belongs_to :user
+- belongs_to :item
+- has_one :buyer-address
+
+## buyer-addresses テーブル
+
+| Column       | Type       | Options                        |
+|--------------|------------|--------------------------------|
+| postal-code  | integer    | null: false                    |
+| state        | string     | null: false                    |
+| city         | string     | null: false                    |
+| address      | string     | null: false                    |
+| phone        | integer    | null: false                    |
+## Association
+
+- belongs_to :buy-records
+
+
+
+
