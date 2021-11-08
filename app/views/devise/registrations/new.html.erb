@@ -11,9 +11,9 @@
   </div>
 
   <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-  <%= form_with model: @resource, local: true do |f| %>
+  <%#= form_with model: @resource, local: true do |f| %>
   <% render 'shared/error_messages', model: f.object %>
-  <% end %>
+  <%# end %>
   <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
   <div class="form-group">
