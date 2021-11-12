@@ -17,10 +17,10 @@
     <ul class='lists-right'>
       <% if user_signed_in? %>
       <%= link_to current_user.nickname, current_user_path, class: "user-nickname" %>
-      <%= link_to 'ログアウト', estroy_user_session_path, method: :delete, class: "logout" %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
       <% else %>
       <%= link_to 'ログイン', new_user_session_path, class: "login" %>
-      <%= link_to '新規登録', user_registration_path, class: "sign-up" %>      
+      <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>      
       <% end %>
     </ul>
   </div>
