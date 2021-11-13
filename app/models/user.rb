@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :Kana_last_name,     presence: true, format: {with: /\A[ァ-ヶー－]+\z/}
   validates :Kana_first_name,    presence: true, format: {with: /\A[ァ-ヶー－]+\z/}
   validates :birthday,           presence: true
-  validates :encrypted_password,length:{minimum:6},format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/}
+  validates :password, format:{with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i}
 
   #has_many :items
   #has_many :buy_records
