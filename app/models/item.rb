@@ -11,4 +11,5 @@ class Item < ApplicationRecord
   validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}, format:{with: /\A[0-9]+\z/}, presence: true
   has_one_attached :image
   belongs_to :prefecture, :status, :category, :delivery_fee, :ship_day
+  belongs_to :user
 end
