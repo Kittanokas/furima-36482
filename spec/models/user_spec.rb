@@ -101,7 +101,7 @@ RSpec.describe User, type: :model do
       it '名（全角）に半角文字が含まれていると登録できない' do
         @user.Kanji_first_name = 'taro'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Kanji first name is invalid')       
+        expect(@user.errors.full_messages).to include('Kanji first name is invalid')
       end
       it '姓（カナ）にカタカナ以外の文字（平仮名・漢字・英数字・記号）が含まれていると登録できない' do
         @user.Kana_last_name = '鈴木'
