@@ -17,4 +17,5 @@ class Item < ApplicationRecord
   belongs_to :delivery_fee
   belongs_to :ship_day
   belongs_to :user
+  has_one :order
 end
