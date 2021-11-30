@@ -23,6 +23,7 @@ class OrdersController < ApplicationController
       @order_address.save
       return redirect_to root_path 
     else
+      @order_address = OrderAddress.new(order_params)
       render :index
     end
   end
