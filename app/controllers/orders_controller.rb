@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   def index
     @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new
-
+    redirect_to root_path unless current_user.id == @order_address.user_id
   end
 
   def new
@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
         currency: 'jpy'      
       )
       @order_address.save
-      return redirect_to root_path
+      return redirect_to root_path 
     else
       render :index
     end
