@@ -39,10 +39,15 @@ class ItemsController < ApplicationController
     end
   end
 
+  def purchase
+    @item = Item.find(params[:id])
+    @item.update(buyer_address_id: current_user.id)
+  end
+
   private
   def item_params
     params.require(:item).permit(:image, :name, :explanation, :category_id, :status_id, :delivery_fee_id, :prefecture_id,
-                                 :ship_day_id, :price).merge(user_id: current_user.id)
+                                 :ship_day_id, :price, :order_id).merge(user_id: current_user.id)
   end
 
   def set_item
