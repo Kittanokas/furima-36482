@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   def index
     @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new
-    redirect_to root_path unless user_signed_in? && current_user.id == @order_address.user_id
+    redirect_to root_path unless user_signed_in? && current_user.id != @item.user_id
   end
 
   def new
@@ -23,7 +23,6 @@ class OrdersController < ApplicationController
       @order_address.save
       return redirect_to root_path 
     else
-      @order_address = OrderAddress.new(order_params)
       render :index
     end
   end
