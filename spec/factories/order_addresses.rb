@@ -7,5 +7,7 @@ FactoryBot.define do
     house_num { '1-1' }
     building_name { 'テスト' }
     phone { '09012345678' }
+    association :user
+    association :item
   end
 end
