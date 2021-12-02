@@ -74,11 +74,6 @@ ActiveRecord::Schema.define(version: 2021_11_29_032443) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "Kanji_last_name"
-    t.string "Kanji_first_name"
-    t.string "Kana_last_name"
-    t.string "Kana_first_name"
-    t.date "birthday"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
