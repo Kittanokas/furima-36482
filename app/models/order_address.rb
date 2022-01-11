@@ -4,14 +4,14 @@ class OrderAddress
 
   with_options presence: true do
     validates :user_id
-    validates :token
-    validates :city
-    validates :house_num
-    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
-    validates :phone, format: { with: /\A(0{1}\d{9,10})\z/, message: 'is invalid. Exclude hyphen(-)' }
+    validates :token, presence: true
+    validates :city, presence: true
+    validates :house_num, presence: true
+    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'は無効です。ハイフンを入れください。' }, presence: true
+    validates :phone, format: { with: /\A(0{1}\d{9,10})\z/, message: 'は無効です。ハイフンを含めないでください。' }, presence: true
     validates :item_id
   end
-  validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :prefecture_id, numericality: { other_than: 1, message: "を選択してください" }
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)

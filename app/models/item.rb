@@ -3,11 +3,11 @@ class Item < ApplicationRecord
   validates :image, presence: true
   validates :name, presence: true
   validates :explanation, presence: true
-  validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }, presence: true
-  validates :delivery_fee_id, numericality: { other_than: 1, message: "can't be blank" }, presence: true
-  validates :category_id, numericality: { other_than: 1, message: "can't be blank" }, presence: true
-  validates :status_id, numericality: { other_than: 1, message: "can't be blank" }, presence: true
-  validates :ship_day_id, numericality: { other_than: 1, message: "can't be blank" }, presence: true
+  validates :prefecture_id, numericality: { other_than: 1, message: "を選択してください" }, presence: true
+  validates :delivery_fee_id, numericality: { other_than: 1, message: "を選択してください" }, presence: true
+  validates :category_id, numericality: { other_than: 1, message: "を選択してください" }, presence: true
+  validates :status_id, numericality: { other_than: 1, message: "を選択してください" }, presence: true
+  validates :ship_day_id, numericality: { other_than: 1, message: "を選択してください" }, presence: true
   validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
                     format: { with: /\A[0-9]+\z/ }, presence: true
   has_one_attached :image
