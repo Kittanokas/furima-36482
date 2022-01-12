@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: :google_oauth2
 
   validates :nickname,           presence: true
   validates :Kanji_last_name,    presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
@@ -13,4 +13,5 @@ class User < ApplicationRecord
   has_many :items
   has_many :orders
   has_many :comments
+  has_many :sns_credentials
 end
