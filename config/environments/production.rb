@@ -80,6 +80,10 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  ActionCable.server.config.disable_request_forgery_protection = true
+  config.action_cable.url = "wss://【Herokuアプリ名】.herokuapp.com/cable" 
+  config.action_cable.allowed_request_origins = ['https://【Herokuアプリ名】.herokuapp.com', 'http://【Herokuアプリ名】.herokuapp.com']
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
